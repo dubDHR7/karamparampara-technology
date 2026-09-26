@@ -1,1 +1,0 @@
-# karamparampara-technology
