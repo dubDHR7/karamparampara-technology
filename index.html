@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Karamparampara Technology — Enterprise software engineering</title>
+<meta name="description" content="Karamparampara Technology designs and engineers resilient digital frameworks, high-throughput data architecture, and software assets built for scale." />
+<link rel="canonical" href="https://karamparamparatechnology.com/" />
+<meta name="theme-color" content="#16113A" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Karamparampara Technology" />
+<meta property="og:title" content="Karamparampara Technology — Enterprise software engineering" />
+<meta property="og:description" content="Resilient digital frameworks, high-throughput data architecture, and software assets built for scale." />
+<meta property="og:url" content="https://karamparamparatechnology.com/" />
+<meta property="og:image" content="https://karamparamparatechnology.com/assets/images/logo-full.png" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Karamparampara Technology — Enterprise software engineering" />
+<meta name="twitter:description" content="Resilient digital frameworks, high-throughput data architecture, and software assets built for scale." />
+<meta name="twitter:image" content="https://karamparamparatechnology.com/assets/images/logo-full.png" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          pearl: '#F8F9FA',
+          indigo: '#16113A',
+          silver: '#E2E8F0',
+          amethyst: '#7F78B3',
+        },
+        fontFamily: {
+          display: ['"Fraunces"', 'serif'],
+          body: ['"Inter"', 'sans-serif'],
+        },
+      },
+    },
+  }
+</script>
+
+<style>
+  :root {
+    --pearl: #F8F9FA;
+    --indigo: #16113A;
+    --silver: #E2E8F0;
+    --amethyst: #7F78B3;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--pearl);
+    color: var(--indigo);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  .font-display { font-family: 'Fraunces', serif; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 2px solid var(--amethyst);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  }
+
+  /* ============ existing blueprint draw-in (hero, load) ============ */
+  .blueprint-line {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: draw 1.8s ease forwards;
+  }
+  .blueprint-dot {
+    opacity: 0;
+    animation: fadeInDot 0.6s ease forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes fadeInDot { to { opacity: 1; } }
+
+  /* traveling data points along the hero diagram */
+  .data-pulse {
+    animation: travel 5s linear infinite;
+    opacity: 0;
+  }
+  @keyframes travel {
+    0%   { opacity: 0; }
+    5%   { opacity: 1; }
+    95%  { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  /* subtle animated technical grid behind the hero */
+  .tech-grid {
+    background-image:
+      linear-gradient(rgba(22,17,58,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(22,17,58,0.055) 1px, transparent 1px);
+    background-size: 34px 34px;
+    animation: gridPan 60s linear infinite;
+  }
+  @keyframes gridPan {
+    to { background-position: 340px 340px; }
+  }
+
+  /* ============ nav-link underline + active state ============ */
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 1px;
+    background: var(--amethyst);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+  .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+  .nav-link.active { color: #fff; }
+
+  .footer-link { position: relative; }
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -3px;
+    height: 1px;
+    background: var(--amethyst);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+  .footer-link:hover::after { transform: scaleX(1); }
+
+  /* ============ premium glass navbar ============ */
+  .site-header {
+    background-color: rgba(25, 19, 74, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(43, 37, 97, 0.55);
+    transition: background-color .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+  .site-header.header-scrolled {
+    background-color: rgba(20, 15, 61, 0.96);
+    box-shadow: 0 12px 30px -16px rgba(6, 4, 22, 0.6);
+    border-bottom-color: rgba(127, 120, 179, 0.35);
+  }
+  .nav-inner {
+    height: 5rem;
+    transition: height .3s ease;
+  }
+  .header-scrolled .nav-inner { height: 4rem; }
+
+  .brand-logo { height: 2.15rem; width: auto; transition: height .3s ease; }
+  @media (min-width: 768px) { .brand-logo { height: 2.35rem; } }
+  .header-scrolled .brand-logo { height: 1.7rem; }
+
+  /* ============ scroll reveal ============ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .7s cubic-bezier(.16,.8,.3,1), transform .7s cubic-bezier(.16,.8,.3,1);
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  /* ============ scroll-triggered flow lines (reusable) ============ */
+  .flow-line {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    transition: stroke-dashoffset 1.3s ease;
+  }
+  .flow-line.is-visible { stroke-dashoffset: 0; }
+  .flow-dot {
+    opacity: 0;
+    transition: opacity .4s ease;
+  }
+  .flow-dot.is-visible { opacity: 1; }
+
+  /* ============ cards ============ */
+  .cap-card { transition: border-color 0.25s ease, background-color 0.25s ease; }
+  .cap-card:hover { background-color: rgba(127,120,179,0.06); }
+  .cap-card .cap-icon { transition: transform 0.3s ease; }
+  .cap-card:hover .cap-icon { transform: translateY(-2px) scale(1.05); }
+  .cap-arrow { opacity: 0; transform: translateX(-4px); transition: opacity .25s ease, transform .25s ease; }
+  .cap-card:hover .cap-arrow { opacity: 1; transform: translateX(0); }
+
+  .case-card { transition: box-shadow 0.25s ease, border-color 0.25s ease, transform .25s ease; }
+  .case-card:hover { border-color: var(--amethyst); transform: translateY(-2px); }
+
+  .stage-card { transition: border-color 0.25s ease, transform .25s ease; }
+  .stage-card:hover { border-color: var(--amethyst); }
+  .stage-card.stage-active { border-color: var(--amethyst); }
+
+  .tech-node { transition: transform .25s ease, border-color .25s ease, background-color .25s ease; }
+  .tech-node:hover { transform: translateY(-3px); border-color: var(--amethyst); background-color: rgba(127,120,179,0.08); }
+
+  /* ============ buttons ============ */
+  .btn-primary { transition: background-color 0.2s ease, transform 0.15s ease, box-shadow .2s ease; }
+  .btn-primary:hover { background-color: #6a63a0; transform: translateY(-1px); box-shadow: 0 10px 24px -12px rgba(127,120,179,0.55); }
+
+  .btn-ghost { transition: border-color 0.2s ease, color 0.2s ease; }
+  .btn-ghost:hover { border-color: var(--amethyst); color: var(--amethyst); }
+
+  .link-arrow { display: inline-block; transition: transform .25s ease; }
+  a:hover .link-arrow, button:hover .link-arrow { transform: translateX(3px); }
+
+  /* ============ contact tabs ============ */
+  #tabIndicator { transition: transform .3s cubic-bezier(.4,0,.2,1); }
+  .tab-btn { transition: color .3s ease; }
+
+  .field-input { transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+  .field-input:focus { border-color: var(--amethyst); box-shadow: 0 0 0 3px rgba(127,120,179,0.15); }
+
+  .chip { border: 1px solid rgba(226,232,240,0.3); }
+
+  /* ============ partner progress track ============ */
+  .partner-track { background: var(--silver); }
+  .partner-fill { background: var(--amethyst); transition: width .6s ease; }
+  .partner-track-vert { background: var(--silver); }
+  .partner-fill-vert { background: var(--amethyst); transition: height .6s ease; }
+
+  /* ============ submit button success spinner ============ */
+  .btn-spinner {
+    width: 14px; height: 14px; border-radius: 50%;
+    border: 2px solid rgba(248,249,250,0.35);
+    border-top-color: var(--pearl);
+    animation: spin .7s linear infinite;
+    display: inline-block;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  ::selection { background: var(--amethyst); color: var(--pearl); }
+</style>
+</head>
+
+<body class="font-body antialiased">
+
+<!-- ============ NAVIGATION ============ -->
+<header id="siteHeader" class="site-header sticky top-0 z-50">
+  <div class="nav-inner max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
+    <a href="#top" class="flex items-center" aria-label="Karamparampara Technology — home">
+      <img src="assets/images/logo-icon-light.png" alt="Karamparampara Technology" class="brand-logo sm:hidden" />
+      <img src="assets/images/logo-full-light.png" alt="Karamparampara Technology" class="brand-logo hidden sm:block" />
+    </a>
+
+    <nav class="hidden md:flex items-center gap-10 text-[15px]">
+      <a href="#capabilities" data-section="capabilities" class="nav-link text-white/90 hover:text-white">Services</a>
+      <a href="#portfolio" data-section="portfolio" class="nav-link text-white/90 hover:text-white">Capabilities</a>
+      <a href="#process" data-section="process" class="nav-link text-white/90 hover:text-white">How We Partner</a>
+      <a href="#network" data-section="network" class="nav-link text-white/90 hover:text-white">Careers</a>
+      <a href="#contact" data-section="contact" class="nav-link text-white/90 hover:text-white">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <a href="#contact" class="btn-primary hidden md:inline-block bg-amethyst text-white text-[15px] font-medium px-5 py-2.5 rounded-sm">
+        Initiate Consultation
+      </a>
+      <button id="menuToggle" aria-label="Toggle menu" aria-expanded="false" class="md:hidden p-2 text-white">
+        <svg id="menuIconOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        <svg id="menuIconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="hidden"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="md:hidden hidden border-t border-silver bg-pearl overflow-hidden transition-[max-height] duration-300 ease-in-out" style="max-height:0;">
+    <div class="px-6 py-6 flex flex-col gap-5 text-[15px]">
+      <a href="#capabilities" class="text-indigo/80">Services</a>
+      <a href="#portfolio" class="text-indigo/80">Capabilities</a>
+      <a href="#process" class="text-indigo/80">How We Partner</a>
+      <a href="#network" class="text-indigo/80">Careers</a>
+      <a href="#contact" class="text-indigo/80">Contact</a>
+      <a href="#contact" class="btn-primary bg-amethyst text-pearl text-center font-medium px-5 py-3 rounded-sm mt-2">Initiate Consultation</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="relative overflow-hidden">
+  <div class="tech-grid absolute inset-0 pointer-events-none"></div>
+  <img src="assets/images/logo-icon.png" alt="" aria-hidden="true" class="absolute -right-16 -top-16 w-[420px] opacity-[0.05] pointer-events-none select-none" />
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10 pt-16 md:pt-24 pb-20 md:pb-28">
+    <div class="grid md:grid-cols-12 gap-12 items-center">
+
+      <div class="md:col-span-7">
+        <h1 class="font-display text-[2.6rem] leading-[1.08] sm:text-6xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-indigo max-w-xl">
+          Resilient software, engineered for scale.
+        </h1>
+        <p class="mt-7 text-lg text-indigo/80 max-w-md leading-relaxed">
+          We design and build digital frameworks, high-throughput data architecture, and software assets for organisations that need systems capable of holding up under real operational load.
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center gap-6">
+          <a href="#contact" class="btn-primary bg-amethyst text-pearl font-medium px-7 py-3.5 rounded-sm text-[15px]">
+            Initiate Consultation
+          </a>
+          <a href="#network" class="text-indigo/80 hover:text-amethyst text-[15px] font-medium border-b border-indigo/20 hover:border-amethyst pb-0.5 transition-colors">
+            Join the Engineering Network <span class="link-arrow">→</span>
+          </a>
+        </div>
+
+        <div class="mt-16 flex items-center gap-8 text-sm text-indigo/65">
+          <div>
+            <div class="font-display text-2xl text-indigo font-semibold"><span class="counter" data-target="3">0</span></div>
+            <div>core engineering disciplines</div>
+          </div>
+          <div class="w-px h-10 bg-silver"></div>
+          <div>
+            <div class="font-display text-2xl text-indigo font-semibold"><span class="counter" data-target="4">0</span></div>
+            <div>stage delivery framework</div>
+          </div>
+          <div class="w-px h-10 bg-silver"></div>
+          <div>
+            <div class="font-display text-2xl text-indigo font-semibold"><span class="counter" data-target="1">0</span></div>
+            <div>unified engineering standard</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Signature element: blueprint / layered architecture motif -->
+      <div class="md:col-span-5" id="heroParallax">
+        <svg viewBox="0 0 420 460" class="w-full h-auto" role="img" aria-label="Layered software architecture diagram">
+          <rect x="30" y="40" width="360" height="90" rx="2" fill="none" stroke="#16113A" stroke-width="1.2" class="blueprint-line" style="animation-delay:0.1s"/>
+          <rect x="30" y="150" width="360" height="90" rx="2" fill="none" stroke="#7F78B3" stroke-width="1.4" class="blueprint-line" style="animation-delay:0.35s"/>
+          <rect x="30" y="260" width="360" height="90" rx="2" fill="none" stroke="#16113A" stroke-width="1.2" class="blueprint-line" style="animation-delay:0.6s"/>
+
+          <text x="52" y="90" font-family="Inter" font-size="13" fill="#16113A" opacity="0.9">Interface layer</text>
+          <text x="52" y="200" font-family="Inter" font-size="13" fill="#16113A" opacity="0.9">Application logic</text>
+          <text x="52" y="310" font-family="Inter" font-size="13" fill="#16113A" opacity="0.9">Data &amp; infrastructure</text>
+
+          <line x1="210" y1="130" x2="210" y2="150" stroke="#16113A" stroke-width="1" class="blueprint-line" style="animation-delay:0.9s"/>
+          <line x1="210" y1="240" x2="210" y2="260" stroke="#16113A" stroke-width="1" class="blueprint-line" style="animation-delay:1s"/>
+
+          <circle cx="352" cy="85" r="4" fill="#7F78B3" class="blueprint-dot" style="animation-delay:1.2s"/>
+          <circle cx="352" cy="195" r="4" fill="#16113A" class="blueprint-dot" style="animation-delay:1.35s"/>
+          <circle cx="352" cy="305" r="4" fill="#7F78B3" class="blueprint-dot" style="animation-delay:1.5s"/>
+
+          <!-- live data pulses along the connector lines -->
+          <circle cx="210" cy="140" r="2.4" fill="#7F78B3" class="data-pulse" style="animation-delay:0s;"/>
+          <circle cx="210" cy="250" r="2.4" fill="#16113A" class="data-pulse" style="animation-delay:1.6s;"/>
+          <circle cx="352" cy="85" r="2" fill="#16113A" class="data-pulse" style="animation-delay:3.2s;"/>
+
+          <rect x="30" y="370" width="170" height="60" rx="2" fill="none" stroke="#E2E8F0" stroke-width="1.4" class="blueprint-line" style="animation-delay:0.8s"/>
+          <text x="50" y="405" font-family="Inter" font-size="12" fill="#16113A" opacity="0.75">Distributed systems</text>
+
+          <rect x="220" y="370" width="170" height="60" rx="2" fill="none" stroke="#E2E8F0" stroke-width="1.4" class="blueprint-line" style="animation-delay:0.85s"/>
+          <text x="240" y="405" font-family="Inter" font-size="12" fill="#16113A" opacity="0.75">Secure data flow</text>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CORE CAPABILITIES ============ -->
+<section id="capabilities" class="border-t border-silver">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28">
+    <div class="max-w-lg mb-16 reveal">
+      <h2 class="font-display text-3xl md:text-4xl font-semibold text-indigo">What we build</h2>
+      <p class="mt-4 text-indigo/80 leading-relaxed">
+        Three disciplines, one engineering standard. Every engagement we take on sits inside one of these three.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-silver border-t border-b border-silver">
+
+      <div class="cap-card reveal px-2 md:px-8 py-10 md:py-12">
+        <svg class="cap-icon" width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#7F78B3" stroke-width="1.4" class="mb-6">
+          <rect x="2" y="6" width="30" height="22" rx="1.5"/>
+          <line x1="2" y1="12" x2="32" y2="12"/>
+          <circle cx="6.5" cy="9" r="0.8" fill="#7F78B3" stroke="none"/>
+          <circle cx="9.5" cy="9" r="0.8" fill="#7F78B3" stroke="none"/>
+        </svg>
+        <h3 class="font-display text-xl font-semibold text-indigo mb-3 flex items-center gap-2">
+          Website Development <span class="cap-arrow text-amethyst">→</span>
+        </h3>
+        <p class="text-indigo/80 text-[15px] leading-relaxed">
+          Institutional and corporate platforms built on clean information architecture, engineered to load fast and represent the organisation properly at scale.
+        </p>
+      </div>
+
+      <div class="cap-card reveal px-2 md:px-8 py-10 md:py-12" style="transition-delay:80ms">
+        <svg class="cap-icon mb-6" width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#7F78B3" stroke-width="1.4">
+          <rect x="3" y="3" width="28" height="28" rx="1.5"/>
+          <path d="M3 12 h28 M12 12 v19"/>
+          <circle cx="7.5" cy="7.5" r="1" fill="#7F78B3" stroke="none"/>
+        </svg>
+        <h3 class="font-display text-xl font-semibold text-indigo mb-3 flex items-center gap-2">
+          Web Application Development <span class="cap-arrow text-amethyst">→</span>
+        </h3>
+        <p class="text-indigo/80 text-[15px] leading-relaxed">
+          Multi-user platforms, operational dashboards, and high-throughput data systems with real logic underneath — built to be maintained for years, not demoed once.
+        </p>
+      </div>
+
+      <div class="cap-card reveal px-2 md:px-8 py-10 md:py-12" style="transition-delay:160ms">
+        <svg class="cap-icon mb-6" width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#7F78B3" stroke-width="1.4">
+          <rect x="9" y="2" width="16" height="30" rx="2.5"/>
+          <line x1="9" y1="26" x2="25" y2="26"/>
+          <circle cx="17" cy="29" r="1" fill="#7F78B3" stroke="none"/>
+        </svg>
+        <h3 class="font-display text-xl font-semibold text-indigo mb-3 flex items-center gap-2">
+          Mobile Application Development <span class="cap-arrow text-amethyst">→</span>
+        </h3>
+        <p class="text-indigo/80 text-[15px] leading-relaxed">
+          Native-feel iOS and Android applications, engineered from a shared architectural foundation so mobile stays in lockstep with the web product as it scales.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECHNOLOGY / ENGINEERING STACK ============ -->
+<section id="ecosystem" class="border-t border-silver bg-white/40">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28">
+    <div class="max-w-lg mb-16 reveal">
+      <h2 class="font-display text-3xl md:text-4xl font-semibold text-indigo">The engineering ecosystem</h2>
+      <p class="mt-4 text-indigo/80 leading-relaxed">The technologies we build with, organised around one consistent engineering core.</p>
+    </div>
+
+    <!-- Radial diagram: desktop / tablet -->
+    <div class="hidden md:flex justify-center reveal">
+      <svg id="stackDiagram" viewBox="0 0 600 600" class="w-full max-w-2xl h-auto">
+        <!-- connecting lines, drawn on scroll -->
+        <g stroke="#16113A" stroke-width="1" opacity="0.55">
+          <line class="flow-line" x1="300" y1="300" x2="300" y2="108"/>
+          <line class="flow-line" x1="300" y1="300" x2="438" y2="162" style="transition-delay:.05s"/>
+          <line class="flow-line" x1="300" y1="300" x2="492" y2="300" style="transition-delay:.1s"/>
+          <line class="flow-line" x1="300" y1="300" x2="438" y2="438" style="transition-delay:.15s"/>
+          <line class="flow-line" x1="300" y1="300" x2="300" y2="492" style="transition-delay:.2s"/>
+          <line class="flow-line" x1="300" y1="300" x2="162" y2="438" style="transition-delay:.25s"/>
+          <line class="flow-line" x1="300" y1="300" x2="108" y2="300" style="transition-delay:.3s"/>
+          <line class="flow-line" x1="300" y1="300" x2="162" y2="162" style="transition-delay:.35s"/>
+        </g>
+
+        <!-- central hub -->
+        <circle cx="300" cy="300" r="54" fill="#16113A"/>
+        <image href="assets/images/logo-icon-light.png" x="278" y="278" width="44" height="44" preserveAspectRatio="xMidYMid meet"/>
+
+        <!-- nodes -->
+        <g font-family="Inter" font-size="14" font-weight="500" fill="#16113A" text-anchor="middle">
+          <g>
+            <rect x="242" y="82" width="116" height="36" rx="18" fill="#F8F9FA" stroke="#E2E8F0"/>
+            <text x="300" y="105">React</text>
+          </g>
+          <g>
+            <rect x="382" y="136" width="116" height="36" rx="18" fill="#F8F9FA" stroke="#E2E8F0"/>
+            <text x="440" y="159">Next.js</text>
+          </g>
+          <g>
+            <rect x="436" y="282" width="116" height="36" rx="18" fill="#F8F9FA" stroke="#E2E8F0"/>
+            <text x="494" y="305">Node.js</text>
+          </g>
+          <g>
+            <rect x="382" y="428" width="130" height="36" rx="18" fill="#F8F9FA" stroke="#E2E8F0"/>
+            <text x="447" y="451">React Native</text>
+          </g>
+          <g>
+            <rect x="242" y="482" width="116" height="36" rx="18" fill="#F8F9FA" stroke="#E2E8F0"/>
+            <text x="300" y="505">Flutter</text>
+          </g>
+          <g>
+            <rect x="88" y="428" width="140" height="36" rx="18" fill="#F8F9FA" stroke="#E2E8F0"/>
+            <text x="158" y="451">PostgreSQL</text>
+          </g>
+          <g>
+            <rect x="48" y="282" width="130" height="36" rx="18" fill="#F8F9FA" stroke="#E2E8F0"/>
+            <text x="113" y="305">TypeScript</text>
+          </g>
+          <g>
+            <rect x="88" y="136" width="150" height="36" rx="18" fill="#F8F9FA" stroke="#E2E8F0"/>
+            <text x="163" y="159">Tailwind CSS</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Wrapped chip list: mobile fallback -->
+    <div class="md:hidden reveal">
+      <p class="text-indigo/60 text-sm mb-4 text-center">Built around a single engineering core</p>
+      <div class="flex flex-wrap justify-center gap-2.5">
+        <span class="chip text-sm text-indigo/80 px-3.5 py-2 rounded-full bg-silver/30">React</span>
+        <span class="chip text-sm text-indigo/80 px-3.5 py-2 rounded-full bg-silver/30">Next.js</span>
+        <span class="chip text-sm text-indigo/80 px-3.5 py-2 rounded-full bg-silver/30">Node.js</span>
+        <span class="chip text-sm text-indigo/80 px-3.5 py-2 rounded-full bg-silver/30">React Native</span>
+        <span class="chip text-sm text-indigo/80 px-3.5 py-2 rounded-full bg-silver/30">Flutter</span>
+        <span class="chip text-sm text-indigo/80 px-3.5 py-2 rounded-full bg-silver/30">PostgreSQL</span>
+        <span class="chip text-sm text-indigo/80 px-3.5 py-2 rounded-full bg-silver/30">TypeScript</span>
+        <span class="chip text-sm text-indigo/80 px-3.5 py-2 rounded-full bg-silver/30">Tailwind CSS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAPABILITY DEMONSTRATIONS ============ -->
+<section id="portfolio" class="border-t border-silver">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-4 reveal">
+      <div class="max-w-lg">
+        <h2 class="font-display text-3xl md:text-4xl font-semibold text-indigo">What we're built to handle</h2>
+        <p class="mt-4 text-indigo/80 leading-relaxed">Two illustrative system designs that show the class of problem our architecture is built for — not completed client engagements.</p>
+      </div>
+    </div>
+    <p class="text-xs uppercase tracking-wide text-indigo/40 mb-14 reveal">Concept builds — capability demonstrations, not delivered projects</p>
+
+    <div class="grid md:grid-cols-5 gap-6">
+
+      <!-- Concept 1: wide systems card -->
+      <article class="case-card reveal md:col-span-3 border border-silver rounded-sm p-8 md:p-10 flex flex-col justify-between bg-pearl">
+        <div>
+          <div class="flex items-start justify-between gap-4 mb-6">
+            <h3 class="font-display text-2xl font-semibold text-indigo">OmniChannel Supply Chain Infrastructure</h3>
+            <span class="text-xs text-indigo/65 whitespace-nowrap pt-1">Concept build</span>
+          </div>
+
+          <!-- mini architecture diagram -->
+          <svg viewBox="0 0 360 90" class="w-full h-auto mb-6" aria-hidden="true">
+            <g stroke="#7F78B3" stroke-width="1.1" opacity="0.8">
+              <line class="flow-line" x1="30" y1="45" x2="130" y2="20"/>
+              <line class="flow-line" x1="30" y1="45" x2="130" y2="45" style="transition-delay:.08s"/>
+              <line class="flow-line" x1="30" y1="45" x2="130" y2="70" style="transition-delay:.16s"/>
+              <line class="flow-line" x1="130" y1="20" x2="230" y2="45" style="transition-delay:.24s"/>
+              <line class="flow-line" x1="130" y1="45" x2="230" y2="45" style="transition-delay:.3s"/>
+              <line class="flow-line" x1="130" y1="70" x2="230" y2="45" style="transition-delay:.36s"/>
+              <line class="flow-line" x1="230" y1="45" x2="330" y2="45" style="transition-delay:.44s"/>
+            </g>
+            <circle cx="30" cy="45" r="5" fill="#16113A"/>
+            <circle cx="130" cy="20" r="4" fill="#7F78B3" class="flow-dot"/>
+            <circle cx="130" cy="45" r="4" fill="#7F78B3" class="flow-dot" style="transition-delay:.1s"/>
+            <circle cx="130" cy="70" r="4" fill="#7F78B3" class="flow-dot" style="transition-delay:.2s"/>
+            <circle cx="230" cy="45" r="5" fill="#16113A" class="flow-dot" style="transition-delay:.3s"/>
+            <circle cx="330" cy="45" r="5" fill="#7F78B3" class="flow-dot" style="transition-delay:.45s"/>
+          </svg>
+
+          <p class="text-indigo/80 leading-relaxed max-w-md">
+            An architectural blueprint for a logistics-grade cloud portal: microservices-based inventory balancing, multi-warehouse routing logic, and compliance-ready audit pipelines — the kind of system we design for when scale and reliability are non-negotiable.
+          </p>
+        </div>
+        <div class="mt-10 flex flex-wrap gap-2">
+          <span class="chip text-xs text-indigo/80 px-3 py-1.5 rounded-sm bg-silver/40">Microservices Architecture</span>
+          <span class="chip text-xs text-indigo/80 px-3 py-1.5 rounded-sm bg-silver/40">Automated Asset Balancing</span>
+          <span class="chip text-xs text-indigo/80 px-3 py-1.5 rounded-sm bg-silver/40">Compliance Pipelines</span>
+        </div>
+      </article>
+
+      <!-- Concept 2: taller product card -->
+      <article class="case-card reveal md:col-span-2 border border-silver rounded-sm p-8 md:p-10 flex flex-col justify-between bg-indigo text-pearl" style="transition-delay:120ms">
+        <div>
+          <div class="flex items-start justify-between gap-4 mb-6">
+            <h3 class="font-display text-2xl font-semibold">FinTech Core Ledger Architecture</h3>
+            <span class="text-xs text-pearl/65 whitespace-nowrap pt-1">Concept build</span>
+          </div>
+
+          <svg viewBox="0 0 260 90" class="w-full h-auto mb-6" aria-hidden="true">
+            <g stroke="#7F78B3" stroke-width="1.1" opacity="0.9">
+              <line class="flow-line" x1="20" y1="45" x2="120" y2="45"/>
+              <line class="flow-line" x1="120" y1="45" x2="180" y2="20" style="transition-delay:.1s"/>
+              <line class="flow-line" x1="120" y1="45" x2="180" y2="70" style="transition-delay:.18s"/>
+              <line class="flow-line" x1="180" y1="20" x2="240" y2="45" style="transition-delay:.26s"/>
+              <line class="flow-line" x1="180" y1="70" x2="240" y2="45" style="transition-delay:.34s"/>
+            </g>
+            <circle cx="20" cy="45" r="5" fill="#F8F9FA"/>
+            <circle cx="120" cy="45" r="4.5" fill="#7F78B3" class="flow-dot"/>
+            <circle cx="180" cy="20" r="4" fill="#F8F9FA" class="flow-dot" style="transition-delay:.15s"/>
+            <circle cx="180" cy="70" r="4" fill="#F8F9FA" class="flow-dot" style="transition-delay:.2s"/>
+            <circle cx="240" cy="45" r="5" fill="#7F78B3" class="flow-dot" style="transition-delay:.32s"/>
+          </svg>
+
+          <p class="text-pearl/70 leading-relaxed">
+            A reference design for a proprietary ledger and banking backend: end-to-end encrypted data flow, rapid API execution paths, and an audit trail designed to hold up under regulatory scrutiny.
+          </p>
+        </div>
+        <div class="mt-10 flex flex-wrap gap-2">
+          <span class="chip text-xs text-pearl/80 px-3 py-1.5 rounded-sm">End-to-End Encryption</span>
+          <span class="chip text-xs text-pearl/80 px-3 py-1.5 rounded-sm">High-Throughput APIs</span>
+        </div>
+      </article>
+
+      <!-- Expansion slot -->
+      <article class="reveal md:col-span-5 border border-dashed border-silver rounded-sm p-8 md:p-10 flex items-center justify-center text-center">
+        <p class="text-indigo/65 text-[15px] max-w-sm">
+          The next case study goes here. We add real client work to this list as it ships.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW WE PARTNER (4-STAGE FRAMEWORK) ============ -->
+<section id="process" class="border-t border-silver">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28">
+    <div class="max-w-lg mb-16 reveal">
+      <h2 class="font-display text-3xl md:text-4xl font-semibold text-indigo">How we partner</h2>
+      <p class="mt-4 text-indigo/80 leading-relaxed">
+        A rigorous four-stage framework governs every engagement, from first conversation to long-term ownership of the system.
+      </p>
+    </div>
+
+    <!-- connecting progress track: horizontal on desktop -->
+    <div class="hidden md:block relative h-px mb-[-1px] mx-4">
+      <div class="partner-track absolute inset-0"></div>
+      <div id="partnerFillH" class="partner-fill absolute inset-y-0 left-0" style="width:0%"></div>
+    </div>
+
+    <div id="partnerGrid" class="grid md:grid-cols-4 gap-6 relative">
+      <!-- connecting progress track: vertical on mobile -->
+      <div class="md:hidden absolute left-[18px] top-2 bottom-2 w-px">
+        <div class="partner-track-vert absolute inset-0"></div>
+        <div id="partnerFillV" class="partner-fill-vert absolute top-0 left-0 w-full" style="height:0%"></div>
+      </div>
+
+      <div class="stage-card reveal border border-silver rounded-sm p-7 md:p-8 bg-pearl relative z-10" data-stage="1">
+        <div class="font-display text-3xl text-amethyst font-semibold mb-6">01</div>
+        <h3 class="font-medium text-indigo mb-3">Discovery &amp; Mapping</h3>
+        <p class="text-indigo/75 text-[15px] leading-relaxed">We map the operational reality of the business — constraints, data flows, and existing systems — before a single design decision is made.</p>
+      </div>
+
+      <div class="stage-card reveal border border-silver rounded-sm p-7 md:p-8 bg-pearl relative z-10" data-stage="2" style="transition-delay:80ms">
+        <div class="font-display text-3xl text-amethyst font-semibold mb-6">02</div>
+        <h3 class="font-medium text-indigo mb-3">Architectural Drafting</h3>
+        <p class="text-indigo/75 text-[15px] leading-relaxed">System architecture, data models, and interface structure are drafted and reviewed before development begins — no scope surprises mid-build.</p>
+      </div>
+
+      <div class="stage-card reveal border border-silver rounded-sm p-7 md:p-8 bg-pearl relative z-10" data-stage="3" style="transition-delay:160ms">
+        <div class="font-display text-3xl text-amethyst font-semibold mb-6">03</div>
+        <h3 class="font-medium text-indigo mb-3">Core Engineering</h3>
+        <p class="text-indigo/75 text-[15px] leading-relaxed">Build phase, run in structured sprints with direct visibility for the client — the people who scoped the project are the ones building it.</p>
+      </div>
+
+      <div class="stage-card reveal border border-silver rounded-sm p-7 md:p-8 bg-pearl relative z-10" data-stage="4" style="transition-delay:240ms">
+        <div class="font-display text-3xl text-amethyst font-semibold mb-6">04</div>
+        <h3 class="font-medium text-indigo mb-3">Continuous Lifecycle Support</h3>
+        <p class="text-indigo/75 text-[15px] leading-relaxed">Delivery isn't the finish line. We stay attached through monitoring, iteration, and scaling as the system meets real-world load.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEVELOPER NETWORK ============ -->
+<section id="network" class="bg-indigo text-pearl relative overflow-hidden">
+  <img src="assets/images/logo-icon-light.png" alt="" aria-hidden="true" class="absolute -left-10 -bottom-10 w-64 opacity-[0.06] pointer-events-none select-none" />
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28">
+    <div class="grid md:grid-cols-12 gap-12">
+      <div class="md:col-span-5 reveal">
+        <h2 class="font-display text-3xl md:text-4xl font-semibold">The Engineering Network</h2>
+        <p class="mt-5 text-pearl/65 leading-relaxed max-w-sm">
+          We work with a small, rotating group of freelance and project-based engineers rather than a fixed in-house bench. When an engagement needs a particular skill set, we bring in someone from the network.
+        </p>
+        <a href="#contact" class="btn-primary inline-block mt-9 bg-amethyst text-pearl font-medium px-7 py-3.5 rounded-sm text-[15px]">
+          Join the Engineering Network
+        </a>
+      </div>
+
+      <div class="md:col-span-7 md:pl-6 reveal" style="transition-delay:100ms">
+        <p class="text-pearl/65 text-sm mb-5">What we typically work with</p>
+        <div class="flex flex-wrap gap-2.5 mb-12">
+          <span class="tech-node chip text-sm text-pearl/85 px-3.5 py-2 rounded-sm border border-transparent">React</span>
+          <span class="tech-node chip text-sm text-pearl/85 px-3.5 py-2 rounded-sm border border-transparent">Next.js</span>
+          <span class="tech-node chip text-sm text-pearl/85 px-3.5 py-2 rounded-sm border border-transparent">Node.js</span>
+          <span class="tech-node chip text-sm text-pearl/85 px-3.5 py-2 rounded-sm border border-transparent">React Native</span>
+          <span class="tech-node chip text-sm text-pearl/85 px-3.5 py-2 rounded-sm border border-transparent">Flutter</span>
+          <span class="tech-node chip text-sm text-pearl/85 px-3.5 py-2 rounded-sm border border-transparent">PostgreSQL</span>
+          <span class="tech-node chip text-sm text-pearl/85 px-3.5 py-2 rounded-sm border border-transparent">TypeScript</span>
+          <span class="tech-node chip text-sm text-pearl/85 px-3.5 py-2 rounded-sm border border-transparent">Tailwind CSS</span>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-8 border-t border-pearl/15 pt-10">
+          <div>
+            <h3 class="font-medium mb-2">Engagement-based work</h3>
+            <p class="text-pearl/60 text-[15px] leading-relaxed">Scoped and paid per engagement, agreed before work starts. No open-ended retainers.</p>
+          </div>
+          <div>
+            <h3 class="font-medium mb-2">Direct with leadership</h3>
+            <p class="text-pearl/60 text-[15px] leading-relaxed">You work directly with whoever's leading the engagement — not through layers of account management.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / ONBOARDING ============ -->
+<section id="contact" class="border-t border-silver">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 md:py-28">
+    <div class="grid md:grid-cols-12 gap-12">
+
+      <div class="md:col-span-4 reveal">
+        <h2 class="font-display text-3xl md:text-4xl font-semibold text-indigo">Initiate consultation</h2>
+        <p class="mt-4 text-indigo/80 leading-relaxed max-w-sm">
+          Tell us what you're building or who you are, and we'll come back to you within two working days.
+        </p>
+      </div>
+
+      <div class="md:col-span-8 reveal" style="transition-delay:80ms">
+        <div class="relative inline-flex border border-indigo rounded-sm p-1 gap-1 mb-8" role="tablist" aria-label="I am a">
+          <span id="tabIndicator" class="absolute inset-y-1 left-1 bg-indigo rounded-sm"></span>
+          <button type="button" data-tab="client" class="tab-btn active relative z-10 px-5 py-2.5 rounded-sm text-[15px] font-medium text-pearl" role="tab" aria-selected="true">
+            I am a Client
+          </button>
+          <button type="button" data-tab="developer" class="tab-btn relative z-10 px-5 py-2.5 rounded-sm text-[15px] font-medium text-indigo" role="tab" aria-selected="false">
+            I am a Developer
+          </button>
+        </div>
+
+        <form id="contactForm" class="grid sm:grid-cols-2 gap-6">
+          <div class="sm:col-span-1">
+            <label for="name" class="block text-sm text-indigo/80 mb-2">Full name</label>
+            <input id="name" name="name" type="text" required class="field-input w-full border border-silver bg-pearl px-4 py-3 rounded-sm text-indigo outline-none" />
+          </div>
+          <div class="sm:col-span-1">
+            <label for="email" class="block text-sm text-indigo/80 mb-2">Email</label>
+            <input id="email" name="email" type="email" required class="field-input w-full border border-silver bg-pearl px-4 py-3 rounded-sm text-indigo outline-none" />
+          </div>
+
+          <div id="clientFields" class="sm:col-span-2 grid sm:grid-cols-2 gap-6">
+            <div>
+              <label for="projectType" class="block text-sm text-indigo/80 mb-2">Project type</label>
+              <select id="projectType" name="projectType" class="field-input w-full border border-silver bg-pearl px-4 py-3 rounded-sm text-indigo outline-none">
+                <option>Website</option>
+                <option>Web Application</option>
+                <option>Mobile Application</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div>
+              <label for="budget" class="block text-sm text-indigo/80 mb-2">Estimated budget</label>
+              <input id="budget" name="budget" type="text" placeholder="e.g. ₹15,00,000" class="field-input w-full border border-silver bg-pearl px-4 py-3 rounded-sm text-indigo outline-none" />
+            </div>
+          </div>
+
+          <div id="developerFields" class="hidden sm:col-span-2 grid sm:grid-cols-2 gap-6">
+            <div>
+              <label for="stack" class="block text-sm text-indigo/80 mb-2">Primary stack</label>
+              <input id="stack" name="stack" type="text" placeholder="e.g. React, Node.js" class="field-input w-full border border-silver bg-pearl px-4 py-3 rounded-sm text-indigo outline-none" />
+            </div>
+            <div>
+              <label for="portfolioLink" class="block text-sm text-indigo/80 mb-2">Portfolio or GitHub link</label>
+              <input id="portfolioLink" name="portfolioLink" type="url" class="field-input w-full border border-silver bg-pearl px-4 py-3 rounded-sm text-indigo outline-none" />
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label for="message" class="block text-sm text-indigo/80 mb-2">Tell us more about you</label>
+            <textarea id="message" name="message" rows="4" class="field-input w-full border border-silver bg-pearl px-4 py-3 rounded-sm text-indigo outline-none resize-none"></textarea>
+          </div>
+
+          <div class="sm:col-span-2">
+            <button type="submit" id="submitBtn" class="btn-primary bg-amethyst text-pearl font-medium px-7 py-3.5 rounded-sm text-[15px] inline-flex items-center gap-2.5">
+              <span id="submitBtnText">Send message</span>
+            </button>
+            <p class="mt-4 text-xs text-indigo/45 max-w-sm">
+              This form is a front-end demo — it doesn't send data yet. Connect a backend or a service such as Formspree or Netlify Forms to make submissions live.
+            </p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-indigo text-pearl">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-10">
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-10 mb-14">
+
+      <div class="md:col-span-1">
+        <img src="assets/images/logo-icon-light.png" alt="Karamparampara Technology" class="h-9 w-auto mb-4" />
+        <div class="font-display text-xl font-semibold mb-2">Karamparampara<br/>Technology</div>
+        <p class="text-pearl/70 text-sm leading-relaxed">karamparamparatechnology.com</p>
+      </div>
+
+      <div>
+        <h4 class="text-sm text-pearl/65 mb-4">Company</h4>
+        <ul class="space-y-3 text-[15px] text-pearl/80">
+          <li><a href="#capabilities" class="footer-link hover:text-amethyst transition-colors">/services</a></li>
+          <li><a href="#portfolio" class="footer-link hover:text-amethyst transition-colors">/capabilities</a></li>
+          <li><a href="#process" class="footer-link hover:text-amethyst transition-colors">/how-we-partner</a></li>
+          <li><a href="#network" class="footer-link hover:text-amethyst transition-colors">/careers</a></li>
+          <li><a href="#contact" class="footer-link hover:text-amethyst transition-colors">/contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-sm text-pearl/65 mb-4">Capabilities</h4>
+        <ul class="space-y-3 text-[15px] text-pearl/80">
+          <li><a href="#portfolio" class="footer-link hover:text-amethyst transition-colors">/capabilities/supply-chain</a></li>
+          <li><a href="#portfolio" class="footer-link hover:text-amethyst transition-colors">/capabilities/fintech-ledger</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-sm text-pearl/65 mb-4">Elsewhere</h4>
+        <ul class="space-y-3 text-[15px] text-pearl/80">
+          <li><a href="#" class="footer-link hover:text-amethyst transition-colors">LinkedIn</a></li>
+          <li><a href="#" class="footer-link hover:text-amethyst transition-colors">GitHub</a></li>
+          <li><a href="#" class="footer-link hover:text-amethyst transition-colors">Instagram</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="border-t border-pearl/15 pt-8 flex flex-col sm:flex-row justify-between gap-4 text-sm text-pearl/65">
+      <p>&copy; 2026 Karamparampara Technology. All rights reserved.</p>
+      <p>Jabalpur, Madhya Pradesh, India</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ============ mobile menu ============ */
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const iconOpen = document.getElementById('menuIconOpen');
+  const iconClose = document.getElementById('menuIconClose');
+
+  function setMobileMenu(open) {
+    if (open) {
+      mobileMenu.classList.remove('hidden');
+      requestAnimationFrame(() => { mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px'; });
+    } else {
+      mobileMenu.style.maxHeight = '0px';
+      setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+    }
+    iconOpen.classList.toggle('hidden', open);
+    iconClose.classList.toggle('hidden', !open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+  }
+
+  menuToggle.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.contains('hidden');
+    setMobileMenu(isHidden);
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setMobileMenu(false));
+  });
+
+  /* ============ navbar scroll state ============ */
+  const siteHeader = document.getElementById('siteHeader');
+  function updateHeaderScroll() {
+    siteHeader.classList.toggle('header-scrolled', window.scrollY > 24);
+  }
+  updateHeaderScroll();
+  window.addEventListener('scroll', updateHeaderScroll, { passive: true });
+
+  /* ============ active nav link on scroll ============ */
+  const navLinks = document.querySelectorAll('.nav-link[data-section]');
+  const sections = Array.from(navLinks)
+    .map(link => document.getElementById(link.dataset.section))
+    .filter(Boolean);
+
+  if (sections.length) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const link = document.querySelector(`.nav-link[data-section="${entry.target.id}"]`);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(s => sectionObserver.observe(s));
+  }
+
+  /* ============ scroll reveal ============ */
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  /* ============ flow-line diagrams (tech ecosystem + case study mini-diagrams) ============ */
+  const flowGroups = document.querySelectorAll('#stackDiagram, .case-card svg');
+  const flowObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.flow-line, .flow-dot').forEach(el => el.classList.add('is-visible'));
+        flowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.35 });
+  flowGroups.forEach(el => flowObserver.observe(el));
+
+  /* ============ number counters ============ */
+  const counters = document.querySelectorAll('.counter');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.target, 10) || 0;
+      const duration = 900;
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        el.textContent = Math.round(progress * target);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+  counters.forEach(el => counterObserver.observe(el));
+
+  /* ============ how-we-partner progress line ============ */
+  const stageCards = document.querySelectorAll('.stage-card[data-stage]');
+  const fillH = document.getElementById('partnerFillH');
+  const fillV = document.getElementById('partnerFillV');
+  const revealedStages = new Set();
+
+  const stageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('stage-active');
+        revealedStages.add(entry.target.dataset.stage);
+        const pct = (revealedStages.size / stageCards.length) * 100;
+        if (fillH) fillH.style.width = pct + '%';
+        if (fillV) fillV.style.height = pct + '%';
+      }
+    });
+  }, { threshold: 0.5 });
+  stageCards.forEach(el => stageObserver.observe(el));
+
+  /* ============ subtle hero parallax ============ */
+  const heroParallax = document.getElementById('heroParallax');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (heroParallax && !reduceMotion) {
+    window.addEventListener('scroll', () => {
+      const offset = Math.min(window.scrollY * 0.06, 40);
+      heroParallax.style.transform = `translateY(${offset}px)`;
+    }, { passive: true });
+  }
+
+  /* ============ contact tabs ============ */
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabIndicator = document.getElementById('tabIndicator');
+  const tabGroup = tabIndicator ? tabIndicator.parentElement : null;
+  const clientFields = document.getElementById('clientFields');
+  const developerFields = document.getElementById('developerFields');
+
+  function moveTabIndicator(btn, animate) {
+    if (!tabIndicator || !tabGroup) return;
+    const groupRect = tabGroup.getBoundingClientRect();
+    const btnRect = btn.getBoundingClientRect();
+    if (!animate) tabIndicator.style.transition = 'none';
+    tabIndicator.style.width = btnRect.width + 'px';
+    tabIndicator.style.transform = `translateX(${btnRect.left - groupRect.left - 4}px)`;
+    if (!animate) requestAnimationFrame(() => { tabIndicator.style.transition = ''; });
+  }
+
+  tabButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      tabButtons.forEach(b => {
+        b.classList.remove('active', 'text-pearl');
+        b.classList.add('text-indigo');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active', 'text-pearl');
+      btn.classList.remove('text-indigo');
+      btn.setAttribute('aria-selected', 'true');
+
+      moveTabIndicator(btn, true);
+
+      if (btn.dataset.tab === 'client') {
+        clientFields.classList.remove('hidden');
+        developerFields.classList.add('hidden');
+      } else {
+        developerFields.classList.remove('hidden');
+        clientFields.classList.add('hidden');
+      }
+    });
+  });
+
+  if (tabButtons.length) {
+    moveTabIndicator(tabButtons[0], false);
+    window.addEventListener('resize', () => {
+      const activeBtn = document.querySelector('.tab-btn.active');
+      if (activeBtn) moveTabIndicator(activeBtn, false);
+    });
+  }
+
+  /* ============ contact form (front-end demo only — no backend wired up) ============ */
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const label = document.getElementById('submitBtnText');
+    const original = label.textContent;
+
+    btn.disabled = true;
+    label.innerHTML = '<span class="btn-spinner"></span> Sending…';
+
+    setTimeout(() => {
+      label.textContent = 'Details captured ✓';
+      setTimeout(() => {
+        label.textContent = original;
+        btn.disabled = false;
+        this.reset();
+      }, 2200);
+    }, 700);
+  });
+</script>
+
+</body>
+</html>
